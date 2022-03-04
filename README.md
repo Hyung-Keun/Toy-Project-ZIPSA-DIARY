@@ -1,5 +1,5 @@
 # Toy-Project-ZIPSA-DIARY
-###This is the first toyproject made by Group 10 in HangHae99 6th. This project is for pet owners who want to write and share daily diaries of their pets in the community. 
+###This is the first toyproject made by Group 10 in HangHae99 6th. This project is for pet owners who want to write and share daily diaries of their pets in the community. Most key elements in the project is based on previous project by S.B.Ko etc. in Hanghae99 year of 2021.
 
 
 1. Title: ZIPSA-DIARY
