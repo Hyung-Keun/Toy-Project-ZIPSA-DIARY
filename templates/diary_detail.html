@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+  {% include 'fragment.html' %}
+  <link rel="stylesheet" type="text/css" href="../static/css/posting.css">
+</head>
+<body>
+    <!--navBar-->
+    {% include 'navbar.html' %}
+    <div class="content__wrap">
+
+        <!-- img-view -->
+        <div class="img-container">
+            <div class="img-wrap">
+                <img src="{{ url_for('static', filename='img/' + diary['diary_file']) }}" alt="업로드 한 이미지" id="img-preview">
+        </div>
+    </div>
+
+        <!-- posting-box -->
+        <div class="posting-box">
+            <div class="form-group mt-2">
+                <label>😀제목</label>
+                <input type="email" class="form-control" id="title" placeholder="{{diary['diary_title']}}" readonly>
+            </div>
+            <div class="form-group mt-2">
+                <label>😀주인공</label>
+                <input type="email" class="form-control" id="species" placeholder="{{diary['friend_species']}}" readonly>
+            </div>
+            <div class="form-group mt-2">
+                <label>😀성별</label>
+                <input type="email" class="form-control" id="sex" placeholder="{{diary['friend_sex']}}" readonly>
+            </div>
+            <div class="form-group mt-2">
+                <label>😀이름</label>
+                <input type="email" class="form-control" id="name" placeholder="{{diary['friend_name']}}" readonly>
+            </div>
+            <div class="form-group mt-2">
+                <label>😀나이</label>
+                <input type="email" class="form-control" id="age" placeholder="{{diary['friend_age']}}" readonly>
+            </div>
+            <div class="form-group">
+                <label>✍🏻일기쓰기</label>
+                <textarea readonly class="form-control" id="content" rows="5" placeholder="{{diary['diary_content']}}"></textarea>
+            </div>
+
+
+
+
+
+            <!-- btn-group -->
+            <div class="btn-wrap">
+            <button onclick="window.location.href='/diary_update/{{diary['_id']}}' " type="button" class="btn btn-dark btn-lg" id="posting-btn">수정하기</button>
+                {% set currentToken = request.cookies.get('mytoken')%}
+                {% set author = diary['author']%}
+                {% set currentUser = user['id']%}
+                {% if (author == currentUser) %}
+                <button onclick="window.location.href= '/'" type="button"
+                    class="btn btn-secondary btn-lg mr-3">목록으로</button>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</body>
