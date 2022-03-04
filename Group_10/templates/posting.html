@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {% include 'fragment.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/posting.css') }}">
+
+
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+
+        .title {
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://pds.joongang.co.kr/news/component/joongang_sunday/202102/06/3dd5eeae-ccd8-4a01-841e-1b5435c8bb85.jpg");
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+
+            width: 100%;
+            max-width: 100vw;
+            height: 300px;
+        }
+
+        .wrap {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-top: 26px;
+        }
+
+        .img-container {
+            width: 100%;
+        }
+
+        .img-wrap {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        #img-preview {
+            margin: 34px 0 50px 0;
+            width: 100%;
+            height: 330px;
+        }
+
+        .posting-box {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        textarea {
+            height: 250px;
+            resize: none;
+        }
+
+        .btn-wrap {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        button {
+            width: 150px;
+            margin: 5px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<header>
+    {% include 'navbar.html' %}
+</header>
+<script src="../static/js/posting.js"></script>
+<script src="{{ url_for('static', filename='js/posting.js') }}"></script>
+<div class="title">
+    <h1>❤️오늘은 무슨 일이 있었나요?❤️</h1>
+</div>
+<div class="wrap">
+    <div class="img-container">
+        <div class="img-wrap">
+            <img src="/static/img/addimg.jpeg"  id="img-preview">
+        </div>
+    </div>
+    <div class="posting-box">
+        <div class="form-group mt-2">
+            <input type="file" class="form-control" id="file" onchange="preview(this)">
+            <small class="form-text text-muted bg-warning"> 꼭! 반드시! 사진 업로드!</small>
+        </div>
+
+        <div class="form-group mt-2">
+            <label>🙂제목</label>
+            <input type="email" class="form-control" id="title">
+        </div>
+        <div class="form-group mt-2">
+            <label>🙂이름</label>
+            <input type="email" class="form-control" id="friend_name">
+        </div>
+        <div class="form-group mt-2">
+            <label>🙂나이</label>
+            <input type="email" class="form-control" id="friend_age">
+        </div>
+        <div class="form-group">
+            <label for="friend_sex" class="form-label">🙂성별</label>
+            <input class="form-control" list="sex_selections" id="friend_sex" placeholder="선택">
+            <datalist id="sex_selections">
+                <option value="🤴🏻왕자">
+                <option value="👸🏻공주">
+            </datalist>
+        </div>
+        <div class="form-group">
+            <label for="friend_species" class="form-label">🙂주인공</label>
+            <input class="form-control" list="species_selections" id="friend_species" placeholder="선택">
+            <datalist id="species_selections">
+                <option value="🐶강아지">
+                <option value="🐢거북이">
+                <option value="🦔고슴도치">
+                <option value="🐱고양이">
+                <option value="🐦새">
+                <option value="🐠물고기">
+                <option value="🐰토끼">
+                <option value="🐹햄스터">
+                <option value="🎸기타...">
+            </datalist>
+        </div>
+        <div class="form-group">
+            <label>✍🏻일기쓰기</label>
+            <textarea class="form-control" id="content" rows="5" placeholder="내용을 입력하세요."></textarea>
+        </div>
+    </div>
+
+
+    <!-- btn-group -->
+    <div class="btn-wrap">
+        <button onclick="posting()" type="button" class="btn btn-dark btn-lg" id="posting-btn">등록</button>
+        <button onclick="window.location.href= '/'" type="button" class="btn btn-secondary btn-lg">취소</button>
+    </div>
+</div>
+
+
+</body>
+</html>
