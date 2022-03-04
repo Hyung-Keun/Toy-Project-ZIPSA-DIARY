@@ -8,10 +8,10 @@ import json
 from pymongo import MongoClient
 from flask import Flask, render_template, jsonify, request, session, redirect, url_for
 app = Flask(__name__)
-SECRET_KEY = 'ZIPSADIARY'
+SECRET_KEY = ''
 
-client = MongoClient('mongodb+srv://toyprojects:sparta@cluster0.wqxmi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
-db = client.dbtoyprojects
+client = MongoClient('')
+db = client.
 
 @ app.route('/')
 def home():
